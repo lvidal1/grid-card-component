@@ -3,26 +3,27 @@ import Card from "../Card"
 import FilterDesktop from '../Filter/Desktop';
 import FilterMobile from '../Filter/Mobile';
 
-import DS from "../../Datasource";
+import useCard from '../../store/useCard';
 import s from './CardList.module.scss';
 
 const CardList = () => {
 
-    const [cards, setCards] = useState([]);
-    const [isLoaded, setIsLoaded] = useState(false);
+    const {
+        isLoading,
+        cardList,
+    } = useCard();
 
     useEffect(() => {
-        setCards(DS.GET_CARDS)
-        setIsLoaded(true)
+
     }, []);
 
     return <>
-        {!isLoaded && (<h4>Loading...</h4>)}
-        {isLoaded && (<>
+        {isLoading && (<h4>Loading...</h4>)}
+        {!isLoading && (<>
             <FilterDesktop />
             <FilterMobile />
             <div className={s.grid}>
-                {cards.map((c) => <Card
+                {cardList.map((c) => <Card
                     key={c.id}
                     id={c.id}
                     image={c.image}
