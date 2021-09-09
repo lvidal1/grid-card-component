@@ -10,11 +10,9 @@ const CardList = () => {
     const [cards, setCards] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
 
-
-
     useEffect(() => {
         setCards(data.cards)
-        setTimeout(() => setIsLoaded(true), 1000)
+        setIsLoaded(true)
     }, []);
 
     return <>
