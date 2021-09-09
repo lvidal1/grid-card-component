@@ -8,6 +8,8 @@ import CardList from "../components/CardList";
 
 
 export default function Home() {
+
+  
   return (
     <div>
       <Head>
@@ -17,10 +19,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.container}>
-
-        <div className={styles.grid}>
-          <CardList />
-        </div>
+        <CardList />
       </main>
 
       <footer className={styles.footer}>

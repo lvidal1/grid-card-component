@@ -2,8 +2,8 @@ import React from 'react';
 import Image from "next/image";
 import TagList from "../TagList";
 import Link from 'next/link';
-import s from './Card.module.scss';
 import Ribbon from '../Ribbon';
+import s from './Card.module.scss';
 
 
 const Card = ({ id, title, image ,description, featured, tags }) => {
