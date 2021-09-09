@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Card from "../Card"
 import FilterDesktop from '../Filter/Desktop';
 import FilterMobile from '../Filter/Mobile';
 
-import useCard from '../../store/useCard';
+import useCard from '../../store/hooks/useCard';
 import s from './CardList.module.scss';
 
 const CardList = () => {

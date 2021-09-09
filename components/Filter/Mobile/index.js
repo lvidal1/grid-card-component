@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { MultiSelect } from "react-multi-select-component";
 import s from "./Filter.module.scss"
 
-import DS from "../../../Datasource";
+import useTag from "../../../store/hooks/useTag";
 
 const FilterMobile = () => {
     const [selected, setSelected] = useState([]);
     const [options, setOptions] = useState([]);
+
+    const { tagList } = useTag();
 
     const mapTags = (tags) => 
         tags.map((tag) =>
@@ -20,8 +22,8 @@ const FilterMobile = () => {
     ;
 
     useEffect(() => {
-        setOptions(mapTags(DS.GET_TAGS))
-    }, []);
+        setOptions(mapTags(tagList))
+    }, [tagList]);
 
     return (
         <div className={s["filter"]}>
