@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import data from "../../data";
 import Card from "../Card"
 import FilterDesktop from '../Filter/Desktop';
+import FilterMobile from '../Filter/Mobile';
 
+import DS from "../../Datasource";
 import s from './CardList.module.scss';
 
 const CardList = () => {
@@ -11,7 +12,7 @@ const CardList = () => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        setCards(data.cards)
+        setCards(DS.GET_CARDS)
         setIsLoaded(true)
     }, []);
 
@@ -19,6 +20,7 @@ const CardList = () => {
         {!isLoaded && (<h4>Loading...</h4>)}
         {isLoaded && (<>
             <FilterDesktop />
+            <FilterMobile />
             <div className={s.grid}>
                 {cards.map((c) => <Card
                     key={c.id}

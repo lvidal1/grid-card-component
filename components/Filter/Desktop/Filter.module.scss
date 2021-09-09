@@ -1,5 +1,13 @@
-.filter{
-    display: flex;
+// Helpers
+@import "../../../styles/helpers.scss";
+
+
+.filter {
+    display: none;
     flex-wrap: wrap;
     max-width: 66rem;
+
+    @include tablet() {
+        display: flex;
+    }
 }
