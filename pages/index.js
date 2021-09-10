@@ -4,8 +4,11 @@ import styles from '../styles/Home.module.scss'
 /**
  * * Components
  */
+import Hero from '../src/components/Hero'
 import CardList from '../src/components/CardList'
+
 import { FilterProvider } from '../src/contexts/FilterContext'
+import BackgroundImage from '../src/components/BackgroundImage'
 
 export default function Home() {
 	return (
@@ -16,7 +19,9 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<main className="container">
+			<BackgroundImage />
+			<main className="container-md relative z-5">
+				<Hero />
 				<FilterProvider>
 					<CardList />
 				</FilterProvider>

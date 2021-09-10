@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
-import Card from '../Card'
-import FilterDesktop from '../Filter/Desktop'
-import FilterMobile from '../Filter/Mobile'
+import React, { useContext } from "react"
+import Card from "../Card"
+import FilterDesktop from "../Filter/Desktop"
+import FilterMobile from "../Filter/Mobile"
 
-import useCard from '../../hooks/useCard'
-import s from './CardList.module.scss'
+import useCard from "../../hooks/useCard"
+import s from "./CardList.module.scss"
 
-import { FilterContext } from '../../contexts/FilterContext'
+import { FilterContext } from "../../contexts/FilterContext"
 
 const CardList = () => {
 	const { isLoading, cardList } = useCard()
@@ -20,7 +20,7 @@ const CardList = () => {
 	}
 
 	return (
-		<>
+		<div className="bg-white shadow-sm p-3 mb-5 rounded" id="cards">
 			{isLoading && <h4>Loading...</h4>}
 			{!isLoading && (
 				<>
@@ -39,13 +39,13 @@ const CardList = () => {
 									tags={card.tags}
 								/>
 							) : (
-								''
+								""
 							)
 						)}
 					</div>
 				</>
 			)}
-		</>
+		</div>
 	)
 }
 
