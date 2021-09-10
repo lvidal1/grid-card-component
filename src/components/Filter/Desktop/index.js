@@ -3,8 +3,8 @@ import Checkbox from "../../Checkbox";
 import uuid from 'react-uuid'
 import s from "./Filter.module.scss";
 
-import useTag from "../../../store/hooks/useTag";
-import { FilterContext } from "../../../store/contexts/FilterContext";
+import useTag from "../../../hooks/useTag";
+import { FilterContext } from "../../../contexts/FilterContext";
 
 const FilterDesktop = () => {
   const { tagList } = useTag();

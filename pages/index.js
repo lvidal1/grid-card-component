@@ -4,8 +4,8 @@ import styles from '../styles/Home.module.scss'
 /**
  * * Components
  */
-import CardList from "../components/CardList";
-import { FilterProvider } from "../store/contexts/FilterContext";
+import CardList from "../src/components/CardList";
+import { FilterProvider } from "../src/contexts/FilterContext";
 
 
 export default function Home() {

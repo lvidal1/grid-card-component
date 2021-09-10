@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { MultiSelect } from "react-multi-select-component";
 import s from "./Filter.module.scss"
 
-import useTag from "../../../store/hooks/useTag";
-import { FilterContext } from "../../../store/contexts/FilterContext";
+import useTag from "../../../hooks/useTag";
+import { FilterContext } from "../../../contexts/FilterContext";
 
 const FilterMobile = () => {
     const [selected, setSelected] = useState([]);

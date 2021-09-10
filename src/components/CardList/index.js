@@ -3,10 +3,10 @@ import Card from "../Card";
 import FilterDesktop from "../Filter/Desktop";
 import FilterMobile from "../Filter/Mobile";
 
-import useCard from "../../store/hooks/useCard";
+import useCard from "../../hooks/useCard";
 import s from "./CardList.module.scss";
 
-import { FilterContext } from "../../store/contexts/FilterContext";
+import { FilterContext } from "../../contexts/FilterContext";
 
 const CardList = () => {
   const { isLoading, cardList } = useCard();
