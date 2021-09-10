@@ -1,28 +1,5 @@
 @import "./helpers.scss";
 
-.container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 1180px;
-  margin: 0 auto;
-
-  @include tablet() {
-    max-width: 760px;
-  }
-
-  @include tablet169() {
-    max-width: 991px;
-  }
-
-  @include desktop() {
-    max-width: 1180px;
-  }
-  
-}
 
 .main {
   padding: 5rem 0;
