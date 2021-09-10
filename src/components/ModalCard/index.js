@@ -48,7 +48,7 @@ const ModalCard = () => {
 				<div className={s.modal__backdrop}>
 					<div className="modal-dialog modal-lg">
 						<div className="modal-content">
-							<div className="relative w-100 h-10">
+							<div className="relative w-100 h-15r">
 								<Image
 									src={card.image}
 									alt={`Hero Image`}
