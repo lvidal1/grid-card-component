@@ -27,7 +27,6 @@ const CardList = () => {
         <>
           <FilterDesktop />
           <FilterMobile />
-          {<pre>{JSON.stringify(filterByTags)}</pre>}
           <div className={s.grid}>
             {cardList.map((card) =>
               cardHasTags(card, filterByTags) ? (
