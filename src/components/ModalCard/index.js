@@ -72,7 +72,7 @@ const ModalCard = () => {
 									<small>{card.id}</small>
                                     <div className="mt-2">
 										{card.tags.map(tag => (
-											<span key={tag} className="me-1 badge bg-dark">
+											<span key={tag} className="me-1 fw-normal rounded-0 badge bg-dark">
 												{tag}
 											</span>
 										))}
