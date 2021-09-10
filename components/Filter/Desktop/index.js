@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import Checkbox from "../../Checkbox";
-import { uuid } from "uuidv4";
+import uuid from 'react-uuid'
 import s from "./Filter.module.scss";
 
 import useTag from "../../../store/hooks/useTag";
