@@ -1,0 +1,36 @@
+/* Colors */
+$primary: #b221f6;
+$smoke: #f0f0f0;
+
+/* Bootstrap Config */
+$body-bg: $smoke;
+
+$container-max-widths: (
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1020px,
+	xxl: 1100px
+);
+
+$utilities: (
+	"min-viewport-height": (
+		property: min-height,
+		class: min-vh,
+		values: (
+			50: 50vh,
+			100: 100vh
+		)
+	),
+	"opacity": (
+		property: opacity,
+		values: (
+			0: 0,
+			25: 0.25,
+			50: 0.5,
+			60: 0.6,
+			75: 0.75,
+			100: 1
+		)
+	)
+);
