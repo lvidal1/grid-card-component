@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react"
+import React, { useState, useContext } from "react"
 import Checkbox from "../../Checkbox"
 import uuid from "react-uuid"
 import s from "./Filter.module.scss"
@@ -10,6 +10,7 @@ const FilterDesktop = () => {
 	const { tagList } = useTag()
 
 	const { filterByTags, setFilterByTags } = useContext(FilterContext)
+	const [collapsed, setCollapsed] = useState(true)
 
 	const toggleHandler = (toggle, item) => {
 		// add to list
@@ -26,7 +27,7 @@ const FilterDesktop = () => {
 	return (
 		<div className={`d-none d-sm-block`}>
 			<h6>Filter by:</h6>
-			<div className={s.group}>
+			<div className={`${s.group} ${collapsed ? s["group--collapsed"] : ""}`}>
 				{tagList.map(tag => {
 					const key = `chk-${uuid()}`
 					return (
@@ -39,6 +40,16 @@ const FilterDesktop = () => {
 						/>
 					)
 				})}
+			</div>
+			<div className={`text-center d-block`}>
+				<a
+					href="javascript:void(0);"
+					onClick={() => setCollapsed(!collapsed)}
+					role
+					className={`fw-normal my-2 d-block`}
+				>
+					{collapsed ? "+ more" : "- hide" }
+				</a>
 			</div>
 		</div>
 	)
