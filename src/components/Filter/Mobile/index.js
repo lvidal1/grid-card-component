@@ -1,54 +1,52 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { MultiSelect } from "react-multi-select-component";
-import s from "./Filter.module.scss"
+import React, { useState, useEffect, useContext } from 'react'
+import { MultiSelect } from 'react-multi-select-component'
+import s from './Filter.module.scss'
 
-import useTag from "../../../hooks/useTag";
-import { FilterContext } from "../../../contexts/FilterContext";
+import useTag from '../../../hooks/useTag'
+import { FilterContext } from '../../../contexts/FilterContext'
 
 const FilterMobile = () => {
-    const [selected, setSelected] = useState([]);
-    const [options, setOptions] = useState([]);
+	const [selected, setSelected] = useState([])
+	const [options, setOptions] = useState([])
 
-    const { tagList } = useTag();
+	const { tagList } = useTag()
 
-    const { filterByTags, setFilterByTags } = useContext(FilterContext);
+	const { filterByTags, setFilterByTags } = useContext(FilterContext)
 
-    const mapTags = (tags) => 
-        tags.map((tag) =>
-        (
-            {
-                label: tag.toUpperCase(),
-                value: tag
-            }
-        )
-        )
-    ;
+	const mapTags = tags =>
+		tags.map(tag => ({
+			label: tag.toUpperCase(),
+			value: tag
+		}))
 
-    useEffect(() => {
-        setSelected(mapTags(filterByTags));
-    }, [filterByTags]);
+	/**
+	 * Side effects
+	 */
+	useEffect(() => {
+		setSelected(mapTags(filterByTags))
+	}, [filterByTags])
 
-    useEffect(() => {
-        setOptions(mapTags(tagList))
-    }, [tagList]);
+	useEffect(() => {
+		setOptions(mapTags(tagList))
+	}, [tagList])
 
-    return (
-        <div className={s["filter"]}>
-            <h4>Filter by Tag:</h4>
-            {/* <pre>{JSON.stringify(selected)}</pre> */}
-            <MultiSelect
-                options={options}
-                value={selected}
-                onChange={(selected)=>{
-                    const activeList = selected.map(s => s.value);
-                    setSelected(selected)
-                    setFilterByTags(activeList)
-                }}
-                labelledBy="Select"
-                className={s["filter__tags"]}
-            />
-        </div>
-    );
-};
+	return (
+		<div className={s['filter']}>
+			<h4>Filter by Tag:</h4>
+			{/* <pre>{JSON.stringify(selected)}</pre> */}
+			<MultiSelect
+				options={options}
+				value={selected}
+				onChange={selected => {
+					const activeList = selected.map(s => s.value)
+					setSelected(selected)
+					setFilterByTags(activeList)
+				}}
+				labelledBy="Select"
+				className={s['filter__tags']}
+			/>
+		</div>
+	)
+}
 
-export default FilterMobile;
+export default FilterMobile

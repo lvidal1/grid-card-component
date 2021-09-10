@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState } from 'react'
 
 function useCardFilter() {
-  const [filterByTags, setFilterByTags] = useState([]);
+	const [filterByTags, setFilterByTags] = useState([])
 
-  return {
-    filterByTags,
-    setFilterByTags,
-  };
+	return {
+		filterByTags,
+		setFilterByTags
+	}
 }
 
-export default useCardFilter;
+export default useCardFilter
