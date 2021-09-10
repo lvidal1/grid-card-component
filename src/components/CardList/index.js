@@ -7,7 +7,7 @@ import ModalCard from "../ModalCard"
 import useCard from "../../hooks/useCard"
 
 import { FilterContext } from "../../contexts/FilterContext"
-import { ModalContext} from "../../contexts/ModalContext"
+import { ModalContext } from "../../contexts/ModalContext"
 
 import s from "./CardList.module.scss"
 
@@ -38,30 +38,14 @@ const CardList = () => {
 						<FilterMobile />
 					</div>
 					<hr className={`mt-3`} />
-						<div className={`row`}>
-							{cardList.map(card =>
-								cardHasTags(card, filterByTags) ? (
-									<div
-										className={`col-12 col-sm-6 col-md-6 col-lg-4 d-flex justify-content-center`}
-										key={card.id}
-									>
-										<Card
-											id={card.id}
-											image={card.image}
-											title={card.title}
-											description={card.description}
-											featured={card.featured}
-											tags={card.tags}
-											card={card}
-											onReadMore={onReadMore}
-										/>
-									</div>
-								) : (
-									""
-								)
-							)}
-						</div>
-						<ModalCard />
+					<div className={`row`}>
+						{cardList
+							.filter(card => cardHasTags(card, filterByTags))
+							.map(card => (
+								<Card key={card.id} card={card} onReadMore={onReadMore} />
+							))}
+					</div>
+					<ModalCard />
 				</>
 			)}
 		</div>
