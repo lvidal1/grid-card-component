@@ -43,9 +43,8 @@ const FilterDesktop = () => {
 			</div>
 			<div className={`text-center d-block`}>
 				<a
-					href="javascript:void(0);"
 					onClick={() => setCollapsed(!collapsed)}
-					role
+					role="button"
 					className={`fw-normal my-2 d-block`}
 				>
 					{collapsed ? "+ more" : "- hide" }
