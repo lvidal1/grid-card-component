@@ -5,8 +5,29 @@ import { ModalContext } from "../../contexts/ModalContext"
 
 import s from "./Modal.module.scss"
 
+/**
+ * Shimmer utility
+ */
+const shimmer = (w, h) => `
+<svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="g">
+      <stop stop-color="#999" offset="20%" />
+      <stop stop-color="#888" offset="50%" />
+      <stop stop-color="#999" offset="70%" />
+    </linearGradient>
+  </defs>
+  <rect width="${w}" height="${h}" fill="#888" />
+  <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
+  <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
+</svg>`
+
+const toBase64 = str =>
+	typeof window === "undefined"
+		? Buffer.from(str).toString("base64")
+		: window.btoa(str)
+
 const ModalCard = () => {
-	// const [isModalOpen, setModalIsOpen] = useState(false)
 	const { entity: card, isModalOpen, setModalIsOpen } = useContext(ModalContext)
 
 	const onCloseModal = () => {
@@ -49,10 +70,14 @@ const ModalCard = () => {
 							<div className="relative w-100 h-15r">
 								<Image
 									src={card.image}
-									alt={`Hero Image`}
+									alt={`Modal Card Image`}
 									objectFit="cover"
 									quality={80}
 									layout="fill"
+									placeholder="blur"
+									blurDataURL={`data:image/svg+xml;base64,${toBase64(
+										shimmer(700, 475)
+									)}`}
 								/>
 							</div>
 							<div className="absolute top-0 end-0 z-5 p-2 bg-white">
@@ -68,9 +93,12 @@ const ModalCard = () => {
 								<div className="pt-2">
 									<h5 className="modal-title h4">{card.title}</h5>
 									<small>{card.id}</small>
-                                    <div className="mt-2">
+									<div className="mt-2">
 										{card.tags.map(tag => (
-											<span key={tag} className="me-1 fw-normal rounded-0 badge bg-dark">
+											<span
+												key={tag}
+												className="me-1 fw-normal rounded-0 badge bg-dark"
+											>
 												{tag}
 											</span>
 										))}
