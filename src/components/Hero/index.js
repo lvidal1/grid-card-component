@@ -11,7 +11,7 @@ const Hero = () => {
                         href="#cards"
 						className="btn btn-primary btn-lg px-4 gap-3"
 					>
-						Check the news
+						Check out the news
 					</a>
 				</div>
 			</div>

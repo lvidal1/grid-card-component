@@ -23,6 +23,18 @@ $utilities: (
 			100: 100vh
 		)
 	),
+	"height": (
+      property: height,
+      class: h,
+      values: (
+		10: 10rem,
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto
+      )
+    ),
 	"opacity": (
 		property: opacity,
 		values: (

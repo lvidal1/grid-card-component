@@ -2,21 +2,31 @@ import React, { useContext } from "react"
 import Card from "../Card"
 import FilterDesktop from "../Filter/Desktop"
 import FilterMobile from "../Filter/Mobile"
+import ModalCard from "../ModalCard"
 
 import useCard from "../../hooks/useCard"
-import s from "./CardList.module.scss"
 
 import { FilterContext } from "../../contexts/FilterContext"
+import { ModalContext} from "../../contexts/ModalContext"
+
+import s from "./CardList.module.scss"
 
 const CardList = () => {
 	const { isLoading, cardList } = useCard()
 
 	const { filterByTags } = useContext(FilterContext)
+	const { setEntity, setModalIsOpen } = useContext(ModalContext)
 
 	const cardHasTags = (card, tags) => {
 		return tags.length > 0
 			? card.tags.filter(value => tags.includes(value.toLowerCase())).length > 0
 			: true
+	}
+
+	const onReadMore = card => {
+		setEntity(card)
+		setModalIsOpen(true)
+		console.log("read more")
 	}
 
 	return (
@@ -29,27 +39,30 @@ const CardList = () => {
 						<FilterMobile />
 					</div>
 					<hr className={`mt-3`} />
-					<div className={`row`}>
-						{cardList.map(card =>
-							cardHasTags(card, filterByTags) ? (
-								<div
-									className={`col-12 col-sm-6 col-md-6 col-lg-4 d-flex justify-content-center`}
-								>
-									<Card
+						<div className={`row`}>
+							{cardList.map(card =>
+								cardHasTags(card, filterByTags) ? (
+									<div
+										className={`col-12 col-sm-6 col-md-6 col-lg-4 d-flex justify-content-center`}
 										key={card.id}
-										id={card.id}
-										image={card.image}
-										title={card.title}
-										description={card.description}
-										featured={card.featured}
-										tags={card.tags}
-									/>
-								</div>
-							) : (
-								""
-							)
-						)}
-					</div>
+									>
+										<Card
+											id={card.id}
+											image={card.image}
+											title={card.title}
+											description={card.description}
+											featured={card.featured}
+											tags={card.tags}
+											card={card}
+											onReadMore={onReadMore}
+										/>
+									</div>
+								) : (
+									""
+								)
+							)}
+						</div>
+						<ModalCard />
 				</>
 			)}
 		</div>
