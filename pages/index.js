@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.scss'
  * * Components
  */
 import CardList from "../components/CardList";
+import { FilterProvider } from "../store/contexts/FilterContext";
 
 
 export default function Home() {
@@ -18,7 +19,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.container}>
-        <CardList />
+        <FilterProvider>
+          <CardList />
+        </FilterProvider>
       </main>
 
       <footer className={styles.footer}>

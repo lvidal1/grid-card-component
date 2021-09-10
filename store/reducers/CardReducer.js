@@ -4,6 +4,9 @@ const CardReducer = (state, action) => {
         case 'setCardList': {
             return { ...state, cardList: action.data, isLoading: false };
         }
+        case 'setFilter': {
+            return { ...state, filterList: action.data };
+        }
         default:
             return state;
     }

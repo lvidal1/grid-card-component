@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { MultiSelect } from "react-multi-select-component";
 import s from "./Filter.module.scss"
 
 import useTag from "../../../store/hooks/useTag";
+import useCard from "../../../store/hooks/useCard";
+import { FilterContext } from "../../../store/contexts/FilterContext";
 
 const FilterMobile = () => {
     const [selected, setSelected] = useState([]);
     const [options, setOptions] = useState([]);
 
     const { tagList } = useTag();
+
+    const { filterByTags, setFilterByTags } = useContext(FilterContext);
 
     const mapTags = (tags) => 
         tags.map((tag) =>
@@ -22,6 +26,10 @@ const FilterMobile = () => {
     ;
 
     useEffect(() => {
+        setSelected(mapTags(filterByTags));
+    }, [filterByTags]);
+
+    useEffect(() => {
         setOptions(mapTags(tagList))
     }, [tagList]);
 
@@ -32,7 +40,11 @@ const FilterMobile = () => {
             <MultiSelect
                 options={options}
                 value={selected}
-                onChange={setSelected}
+                onChange={(selected)=>{
+                    const activeList = selected.map(s => s.value);
+                    setSelected(selected)
+                    setFilterByTags(activeList)
+                }}
                 labelledBy="Select"
                 className={s["filter__tags"]}
             />

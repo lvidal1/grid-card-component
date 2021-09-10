@@ -19,6 +19,6 @@ const useCard = () => {
             console.log('Cleaning up');
         };
     }, []);
-    return { isLoading, cardList };
+    return { isLoading, cardList  };
 }
 export default useCard;
