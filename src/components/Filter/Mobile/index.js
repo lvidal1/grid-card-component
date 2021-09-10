@@ -31,8 +31,8 @@ const FilterMobile = () => {
 	}, [tagList])
 
 	return (
-		<div className={s['filter']}>
-			<h4>Filter by Tag:</h4>
+		<div className={`${s.selector} d-block d-sm-none`}>
+			<h6>Filter by:</h6>
 			{/* <pre>{JSON.stringify(selected)}</pre> */}
 			<MultiSelect
 				options={options}
@@ -43,7 +43,7 @@ const FilterMobile = () => {
 					setFilterByTags(activeList)
 				}}
 				labelledBy="Select"
-				className={s['filter__tags']}
+				className={s.selector__tags}
 			/>
 		</div>
 	)

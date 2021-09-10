@@ -1,10 +1,10 @@
-import React, { useEffect, useContext } from 'react'
-import Checkbox from '../../Checkbox'
-import uuid from 'react-uuid'
-import s from './Filter.module.scss'
+import React, { useEffect, useContext } from "react"
+import Checkbox from "../../Checkbox"
+import uuid from "react-uuid"
+import s from "./Filter.module.scss"
 
-import useTag from '../../../hooks/useTag'
-import { FilterContext } from '../../../contexts/FilterContext'
+import useTag from "../../../hooks/useTag"
+import { FilterContext } from "../../../contexts/FilterContext"
 
 const FilterDesktop = () => {
 	const { tagList } = useTag()
@@ -24,19 +24,22 @@ const FilterDesktop = () => {
 	const MemoCheckbox = React.memo(Checkbox)
 
 	return (
-		<div className={s['filter']}>
-			{tagList.map(tag => {
-				const key = `chk-${uuid()}`
-				return (
-					<MemoCheckbox
-						key={key}
-						id={key}
-						text={tag}
-						checked={filterByTags.includes(tag.toLowerCase())}
-						onToggle={toggleHandler}
-					/>
-				)
-			})}
+		<div className={`d-none d-sm-block`}>
+			<h6>Filter by:</h6>
+			<div className={s.group}>
+				{tagList.map(tag => {
+					const key = `chk-${uuid()}`
+					return (
+						<MemoCheckbox
+							key={key}
+							id={key}
+							text={tag}
+							checked={filterByTags.includes(tag.toLowerCase())}
+							onToggle={toggleHandler}
+						/>
+					)
+				})}
+			</div>
 		</div>
 	)
 }

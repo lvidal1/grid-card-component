@@ -1,19 +1,9 @@
-// Helpers
-@import "../../../../styles/global/helpers.scss";
+/**
+    CSS Module: Desktop filter
+*/
 
-
-.filter {
-    display: none;
-    flex-wrap: wrap;
-    max-width: 100%;
-
-    @include tablet() {
-        display: flex;
-        max-width: 52rem;
-    }
-
-    @include desktop() {
-        display: flex;
-        max-width: 66rem;
-    }
+.group {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 100%;
 }
