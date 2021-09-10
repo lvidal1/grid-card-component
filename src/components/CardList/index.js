@@ -26,7 +26,6 @@ const CardList = () => {
 	const onReadMore = card => {
 		setEntity(card)
 		setModalIsOpen(true)
-		console.log("read more")
 	}
 
 	return (

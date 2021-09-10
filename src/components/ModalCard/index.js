@@ -38,8 +38,6 @@ const ModalCard = () => {
 		} else {
 			onCloseModal()
 		}
-
-		console.log(isModalOpen)
 	}, [isModalOpen])
 
 	return (
@@ -53,7 +51,7 @@ const ModalCard = () => {
 									src={card.image}
 									alt={`Hero Image`}
 									objectFit="cover"
-									quality={100}
+									quality={80}
 									layout="fill"
 								/>
 							</div>
