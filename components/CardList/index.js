@@ -1,42 +1,53 @@
-import React, { useState, useEffect } from 'react';
-import Card from "../Card"
-import FilterDesktop from '../Filter/Desktop';
-import FilterMobile from '../Filter/Mobile';
+import React, { useContext } from "react";
+import Card from "../Card";
+import FilterDesktop from "../Filter/Desktop";
+import FilterMobile from "../Filter/Mobile";
 
-import DS from "../../Datasource";
-import s from './CardList.module.scss';
+import useCard from "../../store/hooks/useCard";
+import s from "./CardList.module.scss";
+
+import { FilterContext } from "../../store/contexts/FilterContext";
 
 const CardList = () => {
+  const { isLoading, cardList } = useCard();
 
-    const [cards, setCards] = useState([]);
-    const [isLoaded, setIsLoaded] = useState(false);
+  const { filterByTags } = useContext(FilterContext);
 
-    useEffect(() => {
-        setCards(DS.GET_CARDS)
-        setIsLoaded(true)
-    }, []);
+  const cardHasTags = (card, tags) => {
+    return tags.length > 0
+      ? card.tags.filter((value) => tags.includes(value.toLowerCase())).length >
+          0
+      : true;
+  };
 
-    return <>
-        {!isLoaded && (<h4>Loading...</h4>)}
-        {isLoaded && (<>
-            <FilterDesktop />
-            <FilterMobile />
-            <div className={s.grid}>
-                {cards.map((c) => <Card
-                    key={c.id}
-                    id={c.id}
-                    image={c.image}
-                    title={c.title}
-                    description={c.description}
-                    featured={c.featured}
-                    tags={c.tags}
+  return (
+    <>
+      {isLoading && <h4>Loading...</h4>}
+      {!isLoading && (
+        <>
+          <FilterDesktop />
+          <FilterMobile />
+          <div className={s.grid}>
+            {cardList.map((card) =>
+              cardHasTags(card, filterByTags) ? (
+                <Card
+                  key={card.id}
+                  id={card.id}
+                  image={card.image}
+                  title={card.title}
+                  description={card.description}
+                  featured={card.featured}
+                  tags={card.tags}
                 />
-                )}
-            </div>
-        </>)
-        }
-
-    </>;
-}
+              ) : (
+                ""
+              )
+            )}
+          </div>
+        </>
+      )}
+    </>
+  );
+};
 
 export default CardList;

@@ -5,9 +5,15 @@
 .filter {
     display: none;
     flex-wrap: wrap;
-    max-width: 66rem;
+    max-width: 100%;
 
     @include tablet() {
         display: flex;
+        max-width: 52rem;
+    }
+
+    @include desktop() {
+        display: flex;
+        max-width: 66rem;
     }
 }
