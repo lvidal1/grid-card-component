@@ -47,7 +47,7 @@ const ModalCard = () => {
 	return (
 		<>
 			{isModalOpen && card && (
-				<div className={s.modal__backdrop}>
+				<div className={`${s.modal__backdrop} ${isModalOpen ? 'd-block': 'd-none'}`} style={{display:"none"}}> 
 					<div className="modal-dialog modal-lg">
 						<div className="modal-content">
 							<div className="relative w-100 h-15r">

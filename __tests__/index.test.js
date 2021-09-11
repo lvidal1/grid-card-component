@@ -22,21 +22,22 @@ describe("Home", () => {
 	})
 
 	it("renders card list", () => {
-		render(<Home />)
+		const {container}  = render(<Home />)
 
-		const cards = screen.getAllByRole("card", {})
+		const cards = container.querySelectorAll('[data-item="card"]')
+
 		expect(cards.length).toBeGreaterThan(0)
 	})
 
 	it("filters card list", () => {
-		render(<Home />)
+		const {container}  =  render(<Home />)
 
 		const checkboxes = screen.getAllByRole("checkbox", {})
-		const cards = screen.getAllByRole("card", {})
+		const cards = container.querySelectorAll('[data-item="card"]')
 
-		const firstChk = checkboxes[0]
+		const firstChk = checkboxes[1]
 		fireEvent.click(firstChk)
-		const filteredCards = screen.getAllByRole("card", {})
+		const filteredCards = container.querySelectorAll('[data-item="card"]')
 
 		expect(cards.length).toBeGreaterThan(filteredCards.length)
 	})

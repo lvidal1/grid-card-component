@@ -34,7 +34,7 @@ const FilterMobile = () => {
 
 	return (
 		<div className={`${s.selector} d-block d-sm-none ${!isDark() ? '': 'text-dark' }`}>
-			<h6>Filter by:</h6>
+			<p className="h6">Filter by:</p>
 			{/* <pre>{JSON.stringify(selected)}</pre> */}
 			<MultiSelect
 				options={options}
