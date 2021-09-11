@@ -17,7 +17,9 @@ yarn dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## See in action
-:rocket: It renders a demo static blog front-end that shows cards with tech information.
+:rocket: Check it out on https://lvidal-grid-card-component.netlify.app/
+
+:round_pushpin: It renders a demo static blog front-end that shows cards with tech information.
 
 ## Features
 :newspaper: It shows a responsive card grid using static information.
