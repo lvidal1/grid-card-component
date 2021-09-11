@@ -26,7 +26,7 @@ const FilterDesktop = () => {
 
 	return (
 		<div className={`d-none d-sm-block`}>
-			<h6>Filter by:</h6>
+			<p className="h6">Filter by:</p>
 			<div className={`${s.group} ${collapsed ? s["group--collapsed"] : ""}`}>
 				{tagList.map(tag => {
 					const key = `chk-${uuid()}`

@@ -11,6 +11,7 @@ import { FilterProvider } from "../src/contexts/FilterContext"
 import { ModalProvider } from "../src/contexts/ModalContext"
 import BackgroundImage from "../src/components/BackgroundImage"
 import Theme from "../src/components/Theme"
+import Footer from "../src/components/Footer"
 
 export default function Home() {
 	return (
@@ -30,15 +31,7 @@ export default function Home() {
 						</ModalProvider>
 					</FilterProvider>
 				</main>
-				<footer className={styles.footer}>
-					<a
-						href="https://lvidal.pe"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Powered by Leonardo Vidal
-					</a>
-				</footer>
+				<Footer></Footer>
 			</Theme>
 		</div>
 	)

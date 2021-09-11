@@ -18,8 +18,9 @@ const Card = ({ card, onReadMore }) => {
 	return (
 		<div
 			className={`col-12 col-sm-6 col-md-6 col-lg-4 d-flex justify-content-center`}
+			data-item="card"
 		>
-			<div className={`${s.scene} ${!isDark() ? '' : s["scene--dark"] }`} role="card">
+			<div className={`${s.scene} ${!isDark() ? '' : s["scene--dark"] }`} >
 				<div className={s.card} >
 					<div className={`${s["card__face"]} ${s["card__face--front"]}`}>
 						<div className={s["card__image"]}>
