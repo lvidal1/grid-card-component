@@ -16,7 +16,7 @@ const Card = ({ card, onReadMore }) => {
 		<div
 			className={`col-12 col-sm-6 col-md-6 col-lg-4 d-flex justify-content-center`}
 		>
-			<div className={s.scene}>
+			<div className={s.scene} role="card">
 				<div className={s.card}>
 					<div className={`${s["card__face"]} ${s["card__face--front"]}`}>
 						<div className={s["card__image"]}>
