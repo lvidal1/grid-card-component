@@ -33,5 +33,6 @@ const toBase64 = str =>
  */
 const createShimmerImage = (w, h) =>
 	`data:image/svg+xml;base64,${toBase64(shimmer(w, h))}`
+  
 
 export { shimmer, toBase64, createShimmerImage }

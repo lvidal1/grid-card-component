@@ -10,9 +10,12 @@ import { FilterContext } from "../../contexts/FilterContext"
 import { ModalContext } from "../../contexts/ModalContext"
 
 import s from "./CardList.module.scss"
+import { ThemeContext } from "../../contexts/ThemeContext"
 
 const CardList = () => {
 	const { isLoading, cardList } = useCard()
+
+	const { isDark } = useContext(ThemeContext)
 
 	const { filterByTags } = useContext(FilterContext)
 	const { setEntity, setModalIsOpen } = useContext(ModalContext)
@@ -29,7 +32,7 @@ const CardList = () => {
 	}
 
 	return (
-		<div className="bg-white shadow-sm p-3 mb-5 rounded" id="cards">
+		<div className={`shadow-sm p-3 mb-5 rounded ${!isDark() ? 'bg-white': 'bg-dark border border-primary' }`} id="cards">
 			{isLoading && <h4>Loading...</h4>}
 			{!isLoading && (
 				<>
