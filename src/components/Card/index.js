@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useContext} from "react"
 import Image from "next/image"
 
 import TagList from "../TagList"
@@ -6,9 +6,12 @@ import Ribbon from "../Ribbon"
 
 import s from "./Card.module.scss"
 import { createShimmerImage } from "../../utils"
+import { ThemeContext } from "../../contexts/ThemeContext"
 
 const Card = ({ card, onReadMore }) => {
 	const isFeatured = featured => featured == "1"
+
+	const { isDark } = useContext(ThemeContext)
 
 	const { id, title, image, description, featured, tags } = card
 
@@ -16,8 +19,8 @@ const Card = ({ card, onReadMore }) => {
 		<div
 			className={`col-12 col-sm-6 col-md-6 col-lg-4 d-flex justify-content-center`}
 		>
-			<div className={s.scene} role="card">
-				<div className={s.card}>
+			<div className={`${s.scene} ${!isDark() ? '' : s["scene--dark"] }`} role="card">
+				<div className={s.card} >
 					<div className={`${s["card__face"]} ${s["card__face--front"]}`}>
 						<div className={s["card__image"]}>
 							<Image

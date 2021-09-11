@@ -13,7 +13,7 @@
 	max-height: 7.8rem;
 	overflow-y: scroll;
 
-	@include tablet() {
+	@include desktop() {
 		max-height: auto;
 		overflow-y: visible;
 	}

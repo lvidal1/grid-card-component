@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react"
 import Image from "next/image"
 
 import { ModalContext } from "../../contexts/ModalContext"
+import { ThemeContext } from "../../contexts/ThemeContext"
 
 import s from "./Modal.module.scss"
 
@@ -9,6 +10,8 @@ import { createShimmerImage } from "../../utils";
 
 const ModalCard = () => {
 	const { entity: card, isModalOpen, setModalIsOpen } = useContext(ModalContext)
+
+	const { isDark } = useContext(ThemeContext)
 
 	const onCloseModal = () => {
 		setModalIsOpen(false)
@@ -67,7 +70,7 @@ const ModalCard = () => {
 									onClick={onCloseModal}
 								></button>
 							</div>
-							<div className="modal-body">
+							<div className={`modal-body ${!isDark() ? 'bg-white': 'bg-dark' }`}>
 								<div className="pt-2">
 									<h5 className="modal-title h4">{card.title}</h5>
 									<small>{card.id}</small>
@@ -75,7 +78,7 @@ const ModalCard = () => {
 										{card.tags.map(tag => (
 											<span
 												key={tag}
-												className="me-1 fw-normal rounded-0 badge bg-dark"
+												className={`me-1 fw-normal rounded-0 badge bg-dark ${!isDark() ? '': 'border border-white' }` }
 											>
 												{tag}
 											</span>

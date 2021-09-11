@@ -4,6 +4,7 @@ import s from './Filter.module.scss'
 
 import useTag from '../../../hooks/useTag'
 import { FilterContext } from '../../../contexts/FilterContext'
+import { ThemeContext } from "../../../contexts/ThemeContext"
 
 const FilterMobile = () => {
 	const [selected, setSelected] = useState([])
@@ -12,6 +13,7 @@ const FilterMobile = () => {
 	const { tagList } = useTag()
 
 	const { filterByTags, setFilterByTags } = useContext(FilterContext)
+	const { isDark } = useContext(ThemeContext)
 
 	const mapTags = tags =>
 		tags.map(tag => ({
@@ -31,7 +33,7 @@ const FilterMobile = () => {
 	}, [tagList])
 
 	return (
-		<div className={`${s.selector} d-block d-sm-none`}>
+		<div className={`${s.selector} d-block d-sm-none ${!isDark() ? '': 'text-dark' }`}>
 			<h6>Filter by:</h6>
 			{/* <pre>{JSON.stringify(selected)}</pre> */}
 			<MultiSelect
