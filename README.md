@@ -28,6 +28,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 :ticket: It allows to read the full content of the card on a modal box.
 
+:crescent_moon: Dark mode? Of course! You are will be happy while reading.
+
 ## Stack
 :heavy_check_mark: Bootstrap "^5.0.1". Purging css at build stage.
 
