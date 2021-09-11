@@ -21,13 +21,18 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Features
 :newspaper: It shows a responsive card grid using static information.
+
 :mag: It displays a filter tool to choose between all the available cards by tags.
+
 :ticket: It allows to read the full content of the card on a modal box.
 
 ## Stack
 :heavy_check_mark: Bootstrap "^5.0.1". Purging css at build stage.
+
 :heavy_check_mark: Next 11.1.2
+
 :heavy_check_mark: React 17.0.2
+
 :heavy_check_mark: Jest 27.1.1
 
 ## Learn More
